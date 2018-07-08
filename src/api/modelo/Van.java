@@ -6,11 +6,18 @@ public class Van {
 	private boolean arCond;
 	private boolean frigoBar;
 	private boolean tv;
+	private static Van vanUniqueInstance = null;
 	
-	public Van() {
+	private Van() {
 		
 	}
-
+	
+	public Van getInstance() {
+		if(vanUniqueInstance == null)
+			vanUniqueInstance = new Van();
+		return vanUniqueInstance;
+	}
+	
 	public String getPlaca() {
 		return placa;
 	}

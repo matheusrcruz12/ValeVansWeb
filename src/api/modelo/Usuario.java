@@ -1,13 +1,30 @@
 package api.modelo;
-
-public class Usuario {
+/**
+ *@author Matheus Rodrigues
+ * 
+ */
+public class Usuario extends Identificador {
+	private Long id;
 	private String nome;
 	private String senha;
 	
-	public Usuario() {}
+	private static Usuario usuarioUniqueInstance = null;
 	
+	private Usuario() {}
+	// designer patterns singleton
+	public Usuario getInstance() {
+		if(usuarioUniqueInstance == null)
+			usuarioUniqueInstance = new Usuario();
+		return usuarioUniqueInstance;
+	}
 	
-	
+
+	public Long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
